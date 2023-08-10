@@ -17,7 +17,7 @@
       </UButton>
     </UForm>
 
-    <UButton class="github submit" type="submit">
+    <UButton class="github submit" type="button" @click="signIn('github')">
       <Github class="icon" />
       Sign up with Github
     </UButton>
@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { Sparkles, Github } from 'lucide-vue-next';
+const { signIn } = useAuth()
 
 const state = ref({
   email: undefined,
