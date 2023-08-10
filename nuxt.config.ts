@@ -5,7 +5,12 @@ export default defineNuxtConfig({
   },
   modules: ["@nuxthq/ui", "@sidebase/nuxt-auth"],
   auth: {
-    origin: "http://localhost:3000",
-    globalAppMiddleware: true,
-  },
+    isEnabled: true,
+    provider: {
+      type: 'authjs'
+    },
+    globalAppMiddleware: {
+      isEnabled: false
+    }
+  }
 });
