@@ -17,7 +17,7 @@
       </UButton>
     </UForm>
 
-    <UButton class="github submit" type="submit">
+    <UButton class="github submit" type="submit" @click="signInWithGitHub">
       <Github class="icon" />
       Sign up with Github
     </UButton>
@@ -26,6 +26,10 @@
 
 <script setup lang="ts">
 import { Sparkles, Github } from 'lucide-vue-next';
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = 'https://udchhbnbsgycesnvirnw.supabase.co'
+const supabase = createClient(supabaseUrl, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkY2hoYm5ic2d5Y2VzbnZpcm53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTE2NjkwNTcsImV4cCI6MjAwNzI0NTA1N30.WRu7wJHYrVXcUadE-sFUT4YSYWq-kDnQe98s3GMeFMk")
 
 const state = ref({
   email: undefined,
@@ -35,12 +39,20 @@ const state = ref({
 const form = ref()
 
 async function submit() {
-  // Do something with state.value
+  let { data, error } = await supabase.auth.signUp({
+    email: "nils.ulmann@klangkonzept.ch",
+    password: "test"
+  })
 }
 
 ///////////////////////
 
-//auth
+async function signInWithGitHub() {
+  console.log("tst")
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+  })
+}
 
 
 </script>
