@@ -3,9 +3,5 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
-  modules: ["@nuxthq/ui", "@sidebase/nuxt-auth"],
-  auth: {
-    origin: "http://localhost:3000",
-    globalAppMiddleware: true,
-  },
+  modules: ["@nuxthq/ui"],
 });
