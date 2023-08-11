@@ -1,11 +1,8 @@
 <template>
-  <Navbar/>
-  Main Page
-  <button><nuxt-link to="/login">login</nuxt-link></button>
+  <button type="submit" @click="logOut">Logout</button>
 </template>
 
-<script setup lang="ts">
-import type { FormError } from '@nuxthq/ui/dist/runtime/types'
+<script setup>
 import { createClient } from '@supabase/supabase-js'
 
 const supabaseUrl = 'https://udchhbnbsgycesnvirnw.supabase.co'
@@ -13,5 +10,17 @@ const supabase = createClient(supabaseUrl, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
 const { data: { user } } = await supabase.auth.getUser()
 
-console.log(user)
+if (user) {
+  console.log(user.user_metadata.name)
+} else{
+  console.log("no user")
+}
+
+async function logOut() {
+  if (user) {
+    console.log("log out")
+    let { error } = await supabase.auth.signOut()
+  }
+}
+
 </script>
