@@ -1,0 +1,72 @@
+.title {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.hero {
+  padding: 128px;
+  padding-inline: 0;
+}
+
+.container {
+  text-align: center;
+  max-width: 1024px;
+  gap: 16px;
+  display: flex;
+  padding-inline: 32px;
+  margin-inline: auto;
+  flex-direction: column;
+}
+
+.twitter {
+  white-space: nowrap;
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 16px;
+  padding-inline: 16px;
+  background-color: #0f0e24;
+  line-height: 20px;
+  width: fit-content;
+  align-self: center;
+}
+
+.description{
+  line-height: 32px;
+  font-size: 20px;
+  max-width: 672px;
+  align-self: center;
+}
+
+.get-started{
+  font-weight: 500;
+  padding-inline: 32px;
+  background-color: white;
+  color: black;
+  line-height: 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  width: fit-content;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+
+.github-index {
+  font-weight: 500;
+  padding-inline: 32px;
+  color: white;
+  line-height: 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  width: fit-content;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #1F1D3A !important;
+}
+
+.buttons{
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}

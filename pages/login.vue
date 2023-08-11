@@ -5,7 +5,7 @@
     <p class="description">Enter your email to sign in to your account</p>
   
     <UForm class="form" ref="form" :validate="validate" :state="state" @submit.prevent="submit">
-      <UInput class="email-input" v-model="state.email" />
+      <UInput class="email-input" placeholder="username@example.com" v-model="state.email" />
   
       <UButton class="sign-in" type="submit" @click="submit">
         Sign In with Email
