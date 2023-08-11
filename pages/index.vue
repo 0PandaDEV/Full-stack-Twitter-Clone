@@ -5,8 +5,8 @@
       <a href="https://twitter.com/pandadev_" target="_blank" class="twitter">
         Follow along on Twitter
       </a>
-      <h1 class="title">An example Twitter clone built using Nuxt.js 3 and Supabase.</h1>
-      <h2 class="description">I'm building a web app with Nuxt.js 3 and contributing to open source. Take a look to see what I've done so far.</h2>
+      <h1 class="title-index">An example Twitter clone built using Nuxt.js 3 and Supabase.</h1>
+      <h2 class="description-index">I'm building a web app with Nuxt.js 3 and making it open source. Take a look to see what I've done so far.</h2>
       <div class="buttons">
         <nuxt-link class="get-started" to="/login">Get Started</nuxt-link>
         <a class="github-index" href="https://github.com/0PandaDEV/Full-stack-Twitter-Clone" target="_blank">Github</a>

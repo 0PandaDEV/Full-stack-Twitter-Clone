@@ -1,5 +1,9 @@
 <template>
+  <nuxt-link to="/" class="back-button"><svg width="5px" height="9px" viewBox="0 0 5 9" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.88554 6.07319C1.83988 6.07319 3.72935 7.98322 3.6933 7.94733L0.191077 4.46034C-0.0636923 4.20668 -0.0636923 3.79028 0.191077 3.53662L3.69298 0.0520487C3.76268 -0.0173497 3.87805 -0.0173497 3.94772 0.0520487C4.01742 0.121447 4.01742 0.236312 3.94772 0.30571L0.445846 3.79028C0.330479 3.90516 0.330479 4.0918 0.445846 4.20668L3.94772 7.69369C4.01743 7.76307 4.01743 7.87793 3.94772 7.94735C3.9117 7.98084 3.85213 7.98679 3.82037 7.99993C3.78861 8.01307 1.88554 6.07319 1.88554 6.07319Z" id="Shape" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1" />
+    </svg><p>Back</p></nuxt-link>
   <div class="body">
+
     <h2 class="logo">⌘</h2>
     <h1 class="title">Welcome back</h1>
     <p class="description">Enter your email to sign in to your account</p>
