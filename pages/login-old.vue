@@ -56,7 +56,6 @@ async function signInWithGitHub() {
 
 
 </script>
-
-<style>
-@import '~/css/login-old.css';
+<style lang="scss">
+@use '~/css/login-old.scss';
 </style>
