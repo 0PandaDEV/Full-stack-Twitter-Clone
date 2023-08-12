@@ -9,10 +9,10 @@
         <NuxtLink class="link" to="/profile">Profile</NuxtLink>
         <NuxtLink class="link" to="/blog">Blog</NuxtLink>
       </div>
-      <div id="right" class="right">
-        <NuxtLink class="sing-up account" to="/sign-up">Sign Up</NuxtLink>
-        <NuxtLink class="login button account" to="/login">Login</NuxtLink>
-        <img src="{{ user_avatar }}" alt="">
+      <div class="right">
+        <NuxtLink id="account" class="sing-up account" to="/sign-up">Sign Up</NuxtLink>
+        <NuxtLink id="account" class="login button account" to="/login">Login</NuxtLink>
+        <img src="/avatar.png" id="avatar">
       </div>
     </div>
   </header>
@@ -33,11 +33,17 @@ export default {
     }
   },
   mounted() {
-    var right = document.getElementById("right")
+    var account = document.getElementsByClassName("account")
+    var avatar = document.getElementById("avatar")
 
     if (user) {
-      this.user_avatar = user.user_metadata.avatar_url;
-      right.style.display = "none";
+      console.log(user)
+      if (user.user_metadata.avatar_url){
+        avatar.src = user.user_metadata.avatar_url;
+      }
+      account[0].style.display = "none";
+      account[1].style.display = "none";
+      avatar.style.display = "block";
     }
   }
 }
@@ -45,6 +51,12 @@ export default {
 </script>
 
 <style>
+#avatar{
+  height: 40px;
+  border-radius: 100px;
+  display: none;
+}
+
 .header {
   max-width: 1400px;
   width: 100%;
