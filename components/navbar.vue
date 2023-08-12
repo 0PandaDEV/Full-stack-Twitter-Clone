@@ -10,7 +10,6 @@
         <a class="link" href="https://github.com/0PandaDEV/Tweetify-Twitter-Clone/issues" target="_blank">Issues</a>
       </div>
       <div class="right">
-        <NuxtLink id="account" class="sing-up account" to="/sign-up">Sign Up</NuxtLink>
         <NuxtLink id="account" class="login button account" to="/login">Login</NuxtLink>
         <UPopover>
           <img src="/avatar.png" id="avatar">
@@ -31,11 +30,15 @@
 
 <script setup lang="ts">
 const links = [{
-  label: 'Profile',
+  label: 'Dashboard',
   avatar: {
     src: user?.user_metadata.avatar_url
   },
   to: '/profile'
+}, {
+  label: 'Settings',
+  icon: 'i-heroicons-cog-6-tooth',
+  to: "/settings"
 }, {
   label: 'Log out',
   icon: 'i-heroicons-arrow-right-on-rectangle',
@@ -65,7 +68,7 @@ export default {
     }
   },
   mounted() {
-    var account = document.getElementsByClassName("account")
+    var account = document.getElementById("account")
     var avatar = document.getElementById("avatar")
 
     if (user) {
@@ -73,8 +76,7 @@ export default {
       if (user.user_metadata.avatar_url) {
         avatar.src = user.user_metadata.avatar_url;
       }
-      account[0].style.display = "none";
-      account[1].style.display = "none";
+      account.style.display = "none";
       avatar.style.display = "block";
     }
   },
@@ -161,7 +163,7 @@ export default {
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #0e1424;
+  background-color: #000;
   border-radius: 8px;
 }
 
