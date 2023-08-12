@@ -6,13 +6,23 @@
           <p id="logo">⌘</p>
           <h1 class="name">Tweetify</h1>
         </div>
-        <NuxtLink class="link" to="/profile">Profile</NuxtLink>
         <NuxtLink class="link" to="/blog">Blog</NuxtLink>
+        <a class="link" href="https://github.com/0PandaDEV/Tweetify-Twitter-Clone/issues" target="_blank">Issues</a>
       </div>
       <div class="right">
         <NuxtLink id="account" class="sing-up account" to="/sign-up">Sign Up</NuxtLink>
         <NuxtLink id="account" class="login button account" to="/login">Login</NuxtLink>
-        <img src="/avatar.png" id="avatar">
+        <UPopover>
+          <img src="/avatar.png" id="avatar">
+
+          <template #panel>
+            <div class="popover">
+              <NuxtLink class="popover-link" to="/profile">Profile</NuxtLink>
+              <div class="popover-divider"></div>
+              <button class="popover-link" @click="logOut">Log Out</button>
+            </div>
+          </template>
+        </UPopover>
       </div>
     </div>
   </header>
@@ -38,20 +48,28 @@ export default {
 
     if (user) {
       console.log(user)
-      if (user.user_metadata.avatar_url){
+      if (user.user_metadata.avatar_url) {
         avatar.src = user.user_metadata.avatar_url;
       }
       account[0].style.display = "none";
       account[1].style.display = "none";
       avatar.style.display = "block";
     }
+  },
+  methods: {
+    async logOut() {
+      if (user) {
+        await supabase.auth.signOut()
+        navigateTo("/login")
+        location.reload()
+      }
+    }
   }
 }
-
 </script>
 
 <style>
-#avatar{
+#avatar {
   height: 40px;
   border-radius: 100px;
   display: none;
@@ -101,20 +119,49 @@ export default {
   display: inline-flex;
 }
 
-#logo{
+#logo {
   font-size: 26px;
 }
 
-.logo-name{
+.logo-name {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 8px;
 }
 
-.name{
+.name {
   font-size: 20px;
   font-weight: 500;
   margin-right: 24px;
+}
+
+.popover {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #0e1424;
+  border-radius: 8px;
+  width: 100px;
+}
+
+.popover-link {
+  padding: 6px;
+  padding-inline: 8px;
+  text-align: left;
+}
+
+.popover-link:hover {
+  background-color: #2b2945;
+  border-radius: 4px;
+}
+
+.popover-divider {
+  background-color: #2b2945;
+  height: 1px;
+  width: 66px;
+  margin: 4px;
+  margin-inline: 0;
+  align-self: center;
 }
 </style>
