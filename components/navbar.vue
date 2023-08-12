@@ -17,9 +17,10 @@
 
           <template #panel>
             <div class="popover">
-              <NuxtLink class="popover-link" to="/profile">Profile</NuxtLink>
+              <UVerticalNavigation :links="links" />
+              <!-- <NuxtLink class="popover-link" to="/profile">Profile</NuxtLink>
               <div class="popover-divider"></div>
-              <button class="popover-link" @click="logOut">Log Out</button>
+              <button class="popover-link" @click="logOut">Log Out</button> -->
             </div>
           </template>
         </UPopover>
@@ -27,6 +28,27 @@
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const links = [{
+  label: 'Profile',
+  avatar: {
+    src: user?.user_metadata.avatar_url
+  },
+  to: '/profile'
+}, {
+  label: 'Log out',
+  icon: 'i-heroicons-arrow-right-on-rectangle',
+  click: () => logOut()
+}]
+
+function logOut() {
+  if (user) {
+    supabase.auth.signOut()
+    location.reload()
+  }
+}
+</script>
 
 <script lang="ts">
 import { createClient } from '@supabase/supabase-js'
@@ -57,10 +79,9 @@ export default {
     }
   },
   methods: {
-    async logOut() {
+    logOut() {
       if (user) {
-        await supabase.auth.signOut()
-        navigateTo("/login")
+        supabase.auth.signOut()
         location.reload()
       }
     }
@@ -142,7 +163,6 @@ export default {
   flex-direction: column;
   background-color: #0e1424;
   border-radius: 8px;
-  width: 100px;
 }
 
 .popover-link {
