@@ -28,6 +28,12 @@
 import { Sparkles, Github } from 'lucide-vue-next';
 const { signIn } = useAuth()
 
+definePageMeta({
+  auth: {
+    unauthenticatedOnly: true,
+    navigateAuthenticatedTo: '/',
+}})
+
 const state = ref({
   email: undefined,
   password: undefined
