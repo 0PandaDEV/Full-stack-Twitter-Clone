@@ -13,6 +13,7 @@
       </div>
     </div>
   </section>
+  <Post/>
 </template>
 
 <script setup lang="ts">

@@ -17,9 +17,6 @@
           <template #panel>
             <div class="popover">
               <UVerticalNavigation :links="links" />
-              <!-- <NuxtLink class="popover-link" to="/profile">Profile</NuxtLink>
-              <div class="popover-divider"></div>
-              <button class="popover-link" @click="logOut">Log Out</button> -->
             </div>
           </template>
         </UPopover>

@@ -1,8 +1,3 @@
-$background: #000000;
-$theme_color: #897FA3;
-$theme_color_dark: #1F1D3A;
-$theme_color_hightlight: #525161;
-
 .body {
   position: absolute;
   top: 50%;
@@ -29,8 +24,8 @@ $theme_color_hightlight: #525161;
 .email-input, .password-input{
   margin-top: 26px;
   width: 350px;
-  background-color: $background !important;
-  border: 1px solid $theme_color_dark !important;
+  background-color: #000000 !important;
+  border: 1px solid #1F1D3A !important;
   border-radius: 6px;
   box-shadow: none !important;
   font-size: 14px;
@@ -47,8 +42,8 @@ $theme_color_hightlight: #525161;
 
 .github, .google{
   width: 350px;
-  background-color: $background !important;
-  border: 1px solid $theme_color_dark !important;
+  background-color: #000000 !important;
+  border: 1px solid #1F1D3A !important;
   border-radius: 6px;
   box-shadow: none !important;
   font-size: 14px;
@@ -73,7 +68,7 @@ $theme_color_hightlight: #525161;
 }
 
 .email-input:focus, .password-input:focus{
-  border: 1px solid $theme_color_hightlight !important;
+  border: 1px solid #525161 !important;
 }
 
 .password-input{
@@ -101,13 +96,13 @@ $theme_color_hightlight: #525161;
 
 .divider-text{
   font-size: 12px;
-  color: $theme_color;
+  color: #897FA3;
 }
 
 .div1, .div2{
   height: 1px;
   width: 107px;
-  background-color: $theme_color_dark;
+  background-color: #1F1D3A;
   position: absolute;
   top: 50%;
 }
@@ -120,7 +115,7 @@ $theme_color_hightlight: #525161;
 
 
 .sign-up{
-  color: $theme_color;
+  color: #897FA3;
   font-size: 14px;
   margin-top: 26px;
   position: relative;

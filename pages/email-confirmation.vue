@@ -6,6 +6,6 @@
   </div>
 </template>
 
-<style lang="scss">
-@use '~/css/login.scss';
+<style>
+@import '~/css/login.css';
 </style>

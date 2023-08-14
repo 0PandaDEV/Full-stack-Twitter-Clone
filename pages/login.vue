@@ -13,7 +13,7 @@
     <h1 class="title">Welcome back</h1>
     <p class="description">Enter your email to sign in to your account</p>
 
-    <UForm class="form" ref="form" :validate="validate" :state="state" @submit.prevent="submit">
+    <UForm class="form" ref="form" :state="state" @submit.prevent="submit">
       <UInput class="email-input" placeholder="username@example.com" v-model="state.email" />
       <UInput class="password-input" type="password" placeholder="password" v-model="state.password" />
 
@@ -48,7 +48,8 @@
         </UButton>
 
         <UButton class="google" @click="signInWithGoogle">
-          <svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48">
+          <svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 48 48">
             <defs>
               <path id="a"
                 d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" />
@@ -83,21 +84,15 @@ if (user) {
 }
 
 const state = ref({
-  email: undefined
+  email: undefined,
+  password: undefined
 })
-
-const validate = (state: any): FormError[] => {
-  const errors = []
-  if (!state.email) errors.push({ path: 'email', message: 'Required' })
-  if (!state.password) errors.push({ path: 'password', message: 'Required' })
-  return errors
-}
 
 const form = ref()
 
 async function submit() {
-  await form.value!.validate()
-  let { data, error } = await supabase.auth.signInWithPassword({
+  console.log(state.value)
+  let { data, error } = await supabase.auth.signUp({
     email: state.value.email,
     password: state.value.password
   })
@@ -117,4 +112,6 @@ async function signInWithGoogle() {
 }
 </script>
 
-<style lang="scss">@use '~/css/login.scss';</style>
+<style>
+@import '~/css/login.css';
+</style>
