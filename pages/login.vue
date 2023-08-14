@@ -39,12 +39,6 @@ async function submit() {
   const result = await signIn('credentials', {...state.value, callbackUrl: '/'})
   console.log(result)
 }
-
-///////////////////////
-
-//auth
-
-
 </script>
 
 <style>
