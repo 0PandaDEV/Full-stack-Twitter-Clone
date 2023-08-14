@@ -1,2 +1,7 @@
 node_modules
 .nuxt
+.env
+.gitignore
+pnpm-lock.yaml
+README.md
+.DS_Store
