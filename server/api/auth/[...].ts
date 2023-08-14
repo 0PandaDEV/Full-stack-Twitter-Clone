@@ -1,5 +1,6 @@
-import { NuxtAuthHandler } from "#auth";
-import GithubProvider from "next-auth/providers/github";
+// file: ~/server/api/auth/[...].ts
+import { NuxtAuthHandler } from '#auth'
+import GithubProvider from 'next-auth/providers/github'
 
 export default NuxtAuthHandler({
   pages: {
