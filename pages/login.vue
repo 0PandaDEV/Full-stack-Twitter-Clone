@@ -36,7 +36,8 @@ const state = ref({
 const form = ref()
 
 async function submit() {
-  // Do something with state.value
+  const result = await signIn('credentials', {...state.value, callbackUrl: '/'})
+  console.log(result)
 }
 
 ///////////////////////
